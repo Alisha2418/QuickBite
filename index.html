@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QuickBite - Food Order Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🍔 QuickBite Food Order Management</h1>
+
+    <div class="form-section">
+      <h2>Add Food Item</h2>
+      <input type="text" id="itemId" placeholder="Item ID">
+      <input type="text" id="itemName" placeholder="Food Item Name">
+      <input type="text" id="itemCategory" placeholder="Category (e.g. Starter, Main Course)">
+      <input type="text" id="itemPrice" placeholder="Price (₹)">
+      <button onclick="addItem()">Add Item</button>
+    </div>
+
+    <div class="list-section">
+      <h2>Food Items</h2>
+      <table id="itemTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="itemTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
