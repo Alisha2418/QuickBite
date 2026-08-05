@@ -67,4 +67,32 @@ function searchItem() {
   }
 }
 
-renderItems();
+function renderItems() {
+  const tbody = document.getElementById("itemTableBody");
+  tbody.innerHTML = "";
+
+  items.forEach((item) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${item.id}</td>
+      <td>${item.name}</td>
+      <td>${item.category}</td>
+      <td>₹${item.price}</td>
+      <td>
+        <button onclick="displayItemDetails('${item.id}')">View</button>
+        <button onclick="deleteItem('${item.id}')">Delete</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+// Delete Food Item
+function deleteItem(id) {
+  const confirmDelete = confirm(`Are you sure you want to delete item ID "${id}"?`);
+  if (!confirmDelete) return;
+
+  items = items.filter((item) => item.id !== id);
+  localStorage.setItem("items", JSON.stringify(items));
+  renderItems();
+}
